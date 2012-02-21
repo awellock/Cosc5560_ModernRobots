@@ -1,11 +1,13 @@
 import urllib2
+import sys
 from BeautifulSoup import *
 from urlparse import urljoin
 
 # Create a list of words to ignore
-ignorewords = set(['Penis', 'Banana'])
+# Not exactly needed for what we're doing.
+#ignorewords = set(['Penis', 'Banana'])
 
-def cral(self, pages, depth=2):
+def crawl(self, pages, depth=2):
   for i in range(depth):
     newpages=set()
     for page in pages:
@@ -31,3 +33,9 @@ def cral(self, pages, depth=2):
       self.dbcommit()
 
     pages = newpages
+
+if __name__ == '__main__':
+  site = 'http://localhost'
+    if len(sys.argv) > 1:  
+      site = sys.arvc[1]
+  crawl() 
